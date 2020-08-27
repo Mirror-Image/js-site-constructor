@@ -1,0 +1,23 @@
+{
+  "name": "js-constructor",
+  "version": "1.0.0",
+  "description": "vanilla javascript site constructor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mirror-Image/js-site-constructor.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Maksim Borovik <borovik.maksim@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mirror-Image/js-site-constructor/issues"
+  },
+  "homepage": "https://github.com/Mirror-Image/js-site-constructor#readme"
+}
