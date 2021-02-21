@@ -1,4 +1,4 @@
-import {col, row} from "../utils";
+import {col, css, row} from "../utils";
 
 class Block {
   constructor(value, options) {
@@ -21,7 +21,7 @@ export class TitleBlock extends Block {
 
     return row(col(`
       <${tag}>${this.value}</${tag}>
-    `), styles);
+    `), css(styles));
   }
 }
 
@@ -32,9 +32,9 @@ export class ImageBlock extends Block {
 
   toHTML() {
     const {alt, styles, imageStyles} = this.options;
-    const html = `<img src="${this.value}" alt="${alt}" style="${imageStyles}"/>`;
+    const html = `<img src="${this.value}" alt="${alt}" style="${css(imageStyles)}"/>`;
 
-    return row(html, styles);
+    return row(html, css(styles));
   }
 }
 
@@ -45,7 +45,7 @@ export class TextColumnsBlock extends Block {
 
   toHTML() {
     const html = this.value.map(item => col(`<p>${item}</p>`))
-    return row(html.join(" "), this.options.styles);
+    return row(html.join(" "), css(this.options.styles));
   }
 }
 
@@ -57,6 +57,6 @@ export class TextBlock extends Block {
   toHTML() {
     return row(col(`
     <p>${this.value}</p>
-  `), this.options.styles);
+  `), css(this.options.styles));
   }
 }
