@@ -1,5 +1,12 @@
 import {block} from "../utils";
-import {TextBlock, TitleBlock} from "./blocks";
+import {ImageBlock, TextBlock, TextColumnsBlock, TitleBlock} from "./blocks";
+
+const typesMap = {
+  text: TextBlock,
+  title: TitleBlock,
+  textColumn: TextColumnsBlock,
+  image: ImageBlock,
+}
 
 export class Sidebar {
   constructor(selector, callback) {
@@ -18,6 +25,8 @@ export class Sidebar {
     return [
       block('text'),
       block('title'),
+      block('textColumn'),
+      block('image'),
     ].join(' ');
   }
 
@@ -28,9 +37,8 @@ export class Sidebar {
     const value = event.target.value.value;
     const styles = event.target.styles.value;
 
-    const newBlock = type === 'text'
-      ? new TextBlock(value, {styles})
-      : new TitleBlock(value, {styles});
+    const BlockConstructor = typesMap[type];
+    const newBlock = new BlockConstructor(value, {styles});
 
     this.update(newBlock);
 
